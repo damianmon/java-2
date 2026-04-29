@@ -14,6 +14,13 @@
 -------------------------------------------------------------------------- */
 function ticketCompra(productos) {
   // TU CÓDIGO AQUÍ 👇
+  return productos
+    .map((producto) => ({
+      ...producto,
+      subtotal: producto.precio * producto.cantidad,
+    }))
+    .filter((producto) => producto.disponible)
+    .reduce((acc, producto) => acc + producto.subtotal, 0);
 }
 
 /* --------------------------------------------------------------------------

@@ -12,6 +12,7 @@
 -------------------------------------------------------------------------- */
 function aplicarDescuento(precios) {
   // TU CÓDIGO AQUÍ 👇
+  return precios.map((precio) => precio * 0.8);
 }
 
 /* --------------------------------------------------------------------------
@@ -21,6 +22,7 @@ function aplicarDescuento(precios) {
 -------------------------------------------------------------------------- */
 function doblar(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  return numeros.map((numero) => numero * 2);
 }
 
 /* --------------------------------------------------------------------------
@@ -31,6 +33,7 @@ function doblar(numeros) {
 -------------------------------------------------------------------------- */
 function nombresCompletos(personas) {
   // TU CÓDIGO AQUÍ 👇
+  return personas.map((persona) => persona.nombre + " " + persona.apellido);
 }
 
 /* --------------------------------------------------------------------------
@@ -40,6 +43,7 @@ function nombresCompletos(personas) {
 -------------------------------------------------------------------------- */
 function cuadrados(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  return numeros.map((numero) => numero ** 2);
 }
 
 /* --------------------------------------------------------------------------
@@ -50,6 +54,7 @@ function cuadrados(numeros) {
 -------------------------------------------------------------------------- */
 function celsiusAFahrenheit(celsius) {
   // TU CÓDIGO AQUÍ 👇
+  return celsius.map((temperatura) => (temperatura * 9) / 5 + 32);
 }
 
 /* --------------------------------------------------------------------------
@@ -60,6 +65,7 @@ function celsiusAFahrenheit(celsius) {
 -------------------------------------------------------------------------- */
 function agregarIVA(precios) {
   // TU CÓDIGO AQUÍ 👇
+  return precios.map((precio) => Math.round(precio * 1.21 * 100) / 100);
 }
 
 /* --------------------------------------------------------------------------
@@ -69,6 +75,7 @@ function agregarIVA(precios) {
 -------------------------------------------------------------------------- */
 function envolverEnLi(items) {
   // TU CÓDIGO AQUÍ 👇
+  return items.map((item) => `<li>${item}</li>`);
 }
 
 /* --------------------------------------------------------------------------
@@ -79,6 +86,7 @@ function envolverEnLi(items) {
 -------------------------------------------------------------------------- */
 function extraerNombres(productos) {
   // TU CÓDIGO AQUÍ 👇
+  return productos.map((prodcto) => prodcto.nombre);
 }
 
 /* --------------------------------------------------------------------------
@@ -89,6 +97,7 @@ function extraerNombres(productos) {
 -------------------------------------------------------------------------- */
 function numerarLista(items) {
   // TU CÓDIGO AQUÍ 👇
+  return items.map((item, index) => `${index + 1}. ${item}`);
 }
 
 /* --------------------------------------------------------------------------
@@ -100,6 +109,11 @@ function numerarLista(items) {
 -------------------------------------------------------------------------- */
 function normalizarUsuarios(usuarios) {
   // TU CÓDIGO AQUÍ 👇
+  return usuarios.map((u) => ({
+    nombre: u.nombre.toUpperCase(),
+    edad: u.edad,
+    esMayor: u.edad >= 18,
+  }));
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!

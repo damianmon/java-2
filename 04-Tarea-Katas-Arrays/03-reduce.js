@@ -11,6 +11,7 @@
 -------------------------------------------------------------------------- */
 function sumarTotal(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  return numeros.reduce((acumulador, numero) => acumulador + numero, 0);
 }
 
 /* --------------------------------------------------------------------------
@@ -20,6 +21,7 @@ function sumarTotal(numeros) {
 -------------------------------------------------------------------------- */
 function multiplicarTodo(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  return numeros.reduce((acumulador, numero) => acumulador * numero);
 }
 
 /* --------------------------------------------------------------------------
@@ -30,6 +32,7 @@ function multiplicarTodo(numeros) {
 -------------------------------------------------------------------------- */
 function encontrarMaximo(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  return numeros.reduce((max, numero) => (numero > max ? numero : max));
 }
 
 /* --------------------------------------------------------------------------
@@ -40,6 +43,10 @@ function encontrarMaximo(numeros) {
 -------------------------------------------------------------------------- */
 function contarOcurrencias(arr) {
   // TU CÓDIGO AQUÍ 👇
+  return arr.reduce((acc, valor) => {
+    acc[valor] = (acc[valor] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 /* --------------------------------------------------------------------------
@@ -57,8 +64,11 @@ function aplanar(arrayDeArrays) {
    total sumando precio * cantidad de cada item.
    Ej: [{nombre:'TV',precio:500,cantidad:2}] → 1000
 -------------------------------------------------------------------------- */
-function totalCarrito(items) {
+function aplanar(arrayDeArrays) {
   // TU CÓDIGO AQUÍ 👇
+  return arrayDeArrays.reduce((acumulador, currentValue) => {
+    return acumulador.concat(currentValue);
+  }, []);
 }
 
 /* --------------------------------------------------------------------------
@@ -68,8 +78,11 @@ function totalCarrito(items) {
    Ej: [{nombre:'Manzana',categoria:'fruta'},{nombre:'TV',categoria:'electro'}]
        → { fruta: ['Manzana'], electro: ['TV'] }
 -------------------------------------------------------------------------- */
-function agruparPorCategoria(productos) {
+function totalCarrito(items) {
   // TU CÓDIGO AQUÍ 👇
+  return items.reduce((acumulador, item) => {
+    return acumulador + item.precio * item.cantidad;
+  }, 0);
 }
 
 /* --------------------------------------------------------------------------
@@ -78,8 +91,17 @@ function agruparPorCategoria(productos) {
    Redondeá a 2 decimales con Math.round(n * 100) / 100.
    Ej: [10, 20, 30] → 20
 -------------------------------------------------------------------------- */
-function promedio(numeros) {
+function agruparPorCategoria(productos) {
   // TU CÓDIGO AQUÍ 👇
+  return productos.reduce((acc, producto) => {
+    const categoria = producto.categoria;
+    const nombre = producto.nombre;
+    if (!acc[categoria]) {
+      acc[categoria] = [];
+      acc[categoria].push(nombre);
+    }
+    return acc;
+  }, {});
 }
 
 /* --------------------------------------------------------------------------
@@ -88,8 +110,11 @@ function promedio(numeros) {
    usando reduce (sin usar .join()).
    Ej: ['Hola','Mundo','JS'] → 'Hola Mundo JS'
 -------------------------------------------------------------------------- */
-function construirOracion(palabras) {
+function promedio(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  const suma = numeros.reduce((acc, num) => acc + num, 0);
+  const promedio = suma / numeros.length;
+  return Math.round(promedio * 100) / 100;
 }
 
 /* --------------------------------------------------------------------------
@@ -98,8 +123,11 @@ function construirOracion(palabras) {
    calculá el saldo final. Los ingresos suman, los egresos restan.
    Ej: [{tipo:'ingreso',monto:1000},{tipo:'egreso',monto:300}] → 700
 -------------------------------------------------------------------------- */
-function calcularBalance(transacciones) {
+function construirOracion(palabras) {
   // TU CÓDIGO AQUÍ 👇
+  return palabras.reduce((acc, palabra) => {
+    return acc === "" ? palabra : acc + " " + palabra;
+  }, "");
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
